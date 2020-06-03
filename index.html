@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>好用的数字滚动</title>
+	<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport"/>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link href="Odometer.css" rel="stylesheet">
+</head>
+<style type="text/css">
+	*{margin: 0;padding: 0;box-sizing: border-box;}
+    .Odometer,.OdometerBg{margin:40px;}
+    .OdometerBg  .number-animate  .number-animate-dom,.OdometerBg  .number-animate  .number-animate-dot{width: 40px;}
+    .OdometerBg  .number-animate  .number-animate-dot span{  background: #222;color: yellow;border-left: 1px solid #fff;}
+    .OdometerBg  .number-animate  .number-animate-dom{ background: #222;color: yellow;border-left: 1px solid #fff;}
+</style>
+<body>
+    <div class="Odometer"></div>
+    <div class="Odometer2 OdometerBg"></div>
+</body>
+<script src="Odometer.js"></script>
+<script>
+    ;(function(){
+        var num = 89.8,num2 = 345.1
+        var odo1 = new Odometer('.Odometer',{
+            num : num,
+            
+        });
+        var odo2 = new Odometer('.Odometer2',{
+            num : num2,
+            dot:2,
+            speed:2000
+        });
+
+        //改变数值
+        setInterval(()=>{
+            num +=100,odo1.update(num);
+            num2 +=21000,odo2.update(num2);
+        },3000)
+    })();
+</script>
+</html>
